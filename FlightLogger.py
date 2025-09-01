@@ -91,16 +91,23 @@ class KMLLogger:
 
 def main():
     root = tk.Tk()
-    root.title("KML Logger")
+    root.title("GeoSimpleFlightLogger")
 
-    # Fix window size (500px wide, 220px tall to fit labels)
-    root.geometry("500x220")
+    # Fix window size (500px wide, 260px tall to fit wrapped labels)
+    root.geometry("500x260")
     root.resizable(False, False)
 
-    # Static description label
-    tk.Label(root, text="Description: Flight Path Log").pack(pady=5)
+    # Static description label with wrapping
+    tk.Label(
+        root,
+        text="This is a simple flight logger that uses a KML file to record flight paths. "
+             "This file can be viewed in Google Earth, GPXSee or other KML-compatible software.",
+        wraplength=480,
+        justify="left"
+    ).pack(pady=5)
 
-    status_label = tk.Label(root, text="Status: Idle")
+    # Status label with wrapping
+    status_label = tk.Label(root, text="Status: Idle", wraplength=480, justify="left")
     status_label.pack(pady=5)
 
     latest_label = tk.Label(root, text="Latest Position: N/A")
@@ -119,6 +126,7 @@ def main():
     stop_btn.pack(side="left", padx=10)
 
     root.mainloop()
+
 
 if __name__ == "__main__":
     main()
