@@ -3,7 +3,7 @@
     <Document id="1">
         <Style id="10">
             <LineStyle id="11">
-                <color>ff0000ff</color>
+                <color>ffff0000</color>
                 <colorMode>normal</colorMode>
                 <width>3</width>
             </LineStyle>

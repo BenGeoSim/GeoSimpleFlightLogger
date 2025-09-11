@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
+    <Document id="1">
+        <Style id="4">
+            <IconStyle id="5">
+                <colorMode>normal</colorMode>
+                <scale>1.2</scale>
+                <heading>0</heading>
+                <Icon id="6">
+                    <href>http://maps.google.com/mapfiles/kml/shapes/arrow.png</href>
+                </Icon>
+            </IconStyle>
+        </Style>
+        <Style id="9">
+            <IconStyle id="10">
+                <colorMode>normal</colorMode>
+                <scale>1.2</scale>
+                <heading>0</heading>
+                <Icon id="11">
+                    <href>http://maps.google.com/mapfiles/kml/shapes/info.png</href>
+                </Icon>
+            </IconStyle>
+        </Style>
+        <Style id="14">
+            <IconStyle id="15">
+                <colorMode>normal</colorMode>
+                <scale>1.2</scale>
+                <heading>0</heading>
+                <Icon id="16">
+                    <href>http://maps.google.com/mapfiles/kml/shapes/open-diamond.png</href>
+                </Icon>
+            </IconStyle>
+        </Style>
+        <Style id="19">
+            <IconStyle id="20">
+                <colorMode>normal</colorMode>
+                <scale>1.2</scale>
+                <heading>0</heading>
+                <Icon id="21">
+                    <href>http://maps.google.com/mapfiles/kml/shapes/open-diamond.png</href>
+                </Icon>
+            </IconStyle>
+        </Style>
+        <Style id="24">
+            <IconStyle id="25">
+                <colorMode>normal</colorMode>
+                <scale>1.2</scale>
+                <heading>0</heading>
+                <Icon id="26">
+                    <href>http://maps.google.com/mapfiles/kml/shapes/firedept.png</href>
+                </Icon>
+            </IconStyle>
+        </Style>
+        <Style id="29">
+            <IconStyle id="30">
+                <colorMode>normal</colorMode>
+                <scale>1.2</scale>
+                <heading>0</heading>
+                <Icon id="31">
+                    <href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png</href>
+                </Icon>
+            </IconStyle>
+        </Style>
+        <Style id="34">
+            <IconStyle id="35">
+                <colorMode>normal</colorMode>
+                <scale>1.2</scale>
+                <heading>0</heading>
+                <Icon id="36">
+                    <href>http://maps.google.com/mapfiles/kml/shapes/arrow.png</href>
+                </Icon>
+            </IconStyle>
+        </Style>
+        <Style id="39">
+            <LineStyle id="40">
+                <color>ff0000ff</color>
+                <colorMode>normal</colorMode>
+                <width>3</width>
+            </LineStyle>
+        </Style>
+        <Placemark id="3">
+            <name>Gear Up</name>
+            <description>Gear Up at -27.517582, 153.041255, 607.76 m</description>
+            <styleUrl>#4</styleUrl>
+            <Point id="2">
+                <coordinates>153.04125490872713,-27.51758223365653,607.7585692110177</coordinates>
+                <altitudeMode>absolute</altitudeMode>
+            </Point>
+        </Placemark>
+        <Placemark id="8">
+            <name>Stall Warning OFF</name>
+            <description>Stall Warning OFF at -27.517582, 153.041255, 607.76 m</description>
+            <styleUrl>#9</styleUrl>
+            <Point id="7">
+                <coordinates>153.04125490872713,-27.51758223365653,607.7585692110177</coordinates>
+                <altitudeMode>absolute</altitudeMode>
+            </Point>
+        </Placemark>
+        <Placemark id="13">
+            <name>Engine 1 Fire OFF</name>
+            <description>Engine 1 Fire OFF at -27.517582, 153.041255, 607.76 m</description>
+            <styleUrl>#14</styleUrl>
+            <Point id="12">
+                <coordinates>153.04125490872713,-27.51758223365653,607.7585692110177</coordinates>
+                <altitudeMode>absolute</altitudeMode>
+            </Point>
+        </Placemark>
+        <Placemark id="18">
+            <name>Engine 2 Fire OFF</name>
+            <description>Engine 2 Fire OFF at -27.517582, 153.041255, 607.76 m</description>
+            <styleUrl>#19</styleUrl>
+            <Point id="17">
+                <coordinates>153.04125490872713,-27.51758223365653,607.7585692110177</coordinates>
+                <altitudeMode>absolute</altitudeMode>
+            </Point>
+        </Placemark>
+        <Placemark id="23">
+            <name>Engine 1 Fire ON</name>
+            <description>Engine 1 Fire ON at -27.517724, 153.037907, 526.33 m</description>
+            <styleUrl>#24</styleUrl>
+            <Point id="22">
+                <coordinates>153.03790663379868,-27.517723966731857,526.3278608706726</coordinates>
+                <altitudeMode>absolute</altitudeMode>
+            </Point>
+        </Placemark>
+        <Placemark id="28">
+            <name>Gear Down</name>
+            <description>Gear Down at -27.521068, 153.033720, 467.17 m</description>
+            <styleUrl>#29</styleUrl>
+            <Point id="27">
+                <coordinates>153.03371969003436,-27.521067817652153,467.1658950748561</coordinates>
+                <altitudeMode>absolute</altitudeMode>
+            </Point>
+        </Placemark>
+        <Placemark id="33">
+            <name>Gear Up</name>
+            <description>Gear Up at -27.526964, 153.034700, 406.10 m</description>
+            <styleUrl>#34</styleUrl>
+            <Point id="32">
+                <coordinates>153.03470004552213,-27.52696395961509,406.10168789562783</coordinates>
+                <altitudeMode>absolute</altitudeMode>
+            </Point>
+        </Placemark>
+        <Placemark id="38">
+            <name>Flight Path</name>
+            <description>Flight Path Log</description>
+            <styleUrl>#39</styleUrl>
+            <LineString id="37">
+                <extrude>1</extrude>
+                <altitudeMode>absolute</altitudeMode>
+                <coordinates>153.04125490872713,-27.51758223365653,607.7585692110177 153.04046623300425,-27.517472422659836,587.1376181751385 153.0396304572232,-27.517453347413852,565.991926260965 153.0387751616146,-27.51753465296924,545.5290375141841 153.03790663379868,-27.517723966731857,526.3278608706726 153.0370383128341,-27.51802990370798,509.0595745500358 153.03615624266203,-27.51848017707079,493.8757652637296 153.03539873230713,-27.519009154176306,483.10969545292915 153.0347308639713,-27.51962731956332,475.59676320473505 153.03416370097813,-27.52032406016817,470.5440148695658 153.03371969003436,-27.521067817652153,467.1658950748561 153.03340245377936,-27.52184034402567,464.50872058540943 153.0332116413808,-27.522631966619347,461.71265249522224 153.03314897389484,-27.52343031129578,458.00866653898856 153.03321505986438,-27.524217782872668,452.7176082685837 153.0334064545114,-27.524975943702056,445.2972918037003 153.03371938777806,-27.52569414857409,435.27215128871416 153.03415944750498,-27.52637201812547,422.03667312766584 153.03470004552213,-27.52696395961509,406.10168789562783 153.03538920821165,-27.5275032105788,385.94755930431575 153.03614705787382,-27.52791087545144,364.0922292490691 153.03696955678302,-27.52819152551188,340.7709449341173 153.03786277484562,-27.528340871651654,315.8091354818239 153.03882109643504,-27.528339244578902,289.3419518028385 153.03979367770526,-27.528167342501277,262.6663501643162 153.04071461330227,-27.527829278102544,237.35664482741495</coordinates>
+            </LineString>
+        </Placemark>
+    </Document>
+</kml>

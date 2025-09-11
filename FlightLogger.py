@@ -18,7 +18,32 @@ class KMLLogger:
         self.status_label = status_label
         self.latest_label = latest_label
         self.description_text = description_text
-        self.last_gear_state = None  # Track last gear state
+
+        # Track last states
+        self.last_gear_state = None
+        self.last_flap_state = None
+        self.last_stall_state = None
+        self.last_engine_fire_states = {0: None, 1: None}
+
+        # Define flap notches we care about
+        self.flap_notches = {
+            0.25: "Flaps 1/4",
+            1/3:  "Flaps 1/3",
+            0.50: "Flaps 1/2",
+            2/3:  "Flaps 2/3",
+            0.75: "Flaps 3/4",
+        }
+
+        # Icon set (can be replaced with your own URLs)
+        self.icons = {
+            "gear_up": "http://maps.google.com/mapfiles/kml/shapes/arrow.png",
+            "gear_down": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png",
+            "flaps": "http://maps.google.com/mapfiles/kml/shapes/triangle.png",
+            "stall_on": "http://maps.google.com/mapfiles/kml/shapes/caution.png",
+            "stall_off": "http://maps.google.com/mapfiles/kml/shapes/info.png",
+            "fire_on": "http://maps.google.com/mapfiles/kml/shapes/firedept.png",
+            "fire_off": "http://maps.google.com/mapfiles/kml/shapes/open-diamond.png",
+        }
 
     def set_status(self, msg):
         self.status_label.config(text=f"Status: {msg}")
@@ -31,6 +56,9 @@ class KMLLogger:
             self.running = True
             self.coords = []
             self.last_gear_state = None
+            self.last_flap_state = None
+            self.last_stall_state = None
+            self.last_engine_fire_states = {0: None, 1: None}
             self.set_status("Logging started...")
             self.thread = threading.Thread(target=self.log_loop, daemon=True)
             self.thread.start()
@@ -64,6 +92,14 @@ class KMLLogger:
         else:
             self.set_status("Not currently logging.")
 
+    def add_waypoint(self, label, lat, lon, alt, icon_url):
+        wp = self.kml.newpoint(name=label, coords=[(lon, lat, alt)])
+        wp.altitudemode = simplekml.AltitudeMode.absolute
+        wp.description = f"{label} at {lat:.6f}, {lon:.6f}, {alt:.2f} m"
+        wp.style.iconstyle.icon.href = icon_url
+        wp.style.iconstyle.scale = 1.2
+        print(f"Added waypoint: {label} at {lat:.6f}, {lon:.6f}, {alt:.2f}m")
+
     def log_loop(self):
         while self.running:
             try:
@@ -73,17 +109,48 @@ class KMLLogger:
                 self.coords.append((lon, lat, alt))
                 self.update_latest(lat, lon, alt)
 
-                # Gear state
+                # --- Gear state ---
                 gear_state = self.client.getDREF("sim/aircraft/parts/acf_gear_deploy")[0]
                 if gear_state is not None:
                     gear_state = int(round(gear_state))
                     if gear_state in (0, 1) and gear_state != self.last_gear_state:
                         self.last_gear_state = gear_state
-                        label = "Gear Up" if gear_state == 0 else "Gear Down"
-                        wp = self.kml.newpoint(name=label, coords=[(lon, lat, alt)])
-                        wp.altitudemode = simplekml.AltitudeMode.absolute
-                        wp.description = f"Waypoint: {label} at {lat:.6f}, {lon:.6f}, {alt:.2f} m"
-                        print(f"Added waypoint: {label} at {lat:.6f}, {lon:.6f}, {alt:.2f}m")
+                        if gear_state == 0:
+                            self.add_waypoint("Gear Up", lat, lon, alt, self.icons["gear_up"])
+                        else:
+                            self.add_waypoint("Gear Down", lat, lon, alt, self.icons["gear_down"])
+
+                # --- Flap state ---
+                flap_value = self.client.getDREF("sim/flightmodel/controls/flaprat")[0]
+                if flap_value is not None:
+                    flap_value = round(flap_value, 2)
+                    for notch, label in self.flap_notches.items():
+                        if abs(flap_value - notch) < 0.01 and self.last_flap_state != notch:
+                            self.last_flap_state = notch
+                            self.add_waypoint(label, lat, lon, alt, self.icons["flaps"])
+
+                # --- Stall warning state ---
+                stall_state = self.client.getDREF("sim/cockpit2/annunciators/stall_warning")[0]
+                if stall_state is not None:
+                    stall_state = int(round(stall_state))
+                    if stall_state in (0, 1) and stall_state != self.last_stall_state:
+                        self.last_stall_state = stall_state
+                        if stall_state == 1:
+                            self.add_waypoint("Stall Warning ON", lat, lon, alt, self.icons["stall_on"])
+                        else:
+                            self.add_waypoint("Stall Warning OFF", lat, lon, alt, self.icons["stall_off"])
+
+                # --- Engine fire annunciators (index 0 and 1) ---
+                fire_states = self.client.getDREF("sim/cockpit2/annunciators/engine_fires")
+                if fire_states is not None and len(fire_states) >= 2:
+                    for i in [0, 1]:
+                        state = int(round(fire_states[i]))
+                        if state in (0, 1) and state != self.last_engine_fire_states[i]:
+                            self.last_engine_fire_states[i] = state
+                            if state == 1:
+                                self.add_waypoint(f"Engine {i+1} Fire ON", lat, lon, alt, self.icons["fire_on"])
+                            else:
+                                self.add_waypoint(f"Engine {i+1} Fire OFF", lat, lon, alt, self.icons["fire_off"])
 
             except Exception as e:
                 self.set_status(f"Error: {e}")
