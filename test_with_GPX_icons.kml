@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
+    <Document id="1">
+        <Style id="4">
+            <IconStyle id="5">
+                <colorMode>normal</colorMode>
+                <scale>1.2</scale>
+                <heading>0</heading>
+                <Icon id="6">
+                    <href>c:/Users/benja/Documents/GitHub/GeoSimpleFlightLogger\icons\gear_up.png</href>
+                </Icon>
+            </IconStyle>
+        </Style>
+        <Style id="9">
+            <IconStyle id="10">
+                <colorMode>normal</colorMode>
+                <scale>1.2</scale>
+                <heading>0</heading>
+                <Icon id="11">
+                    <href>c:/Users/benja/Documents/GitHub/GeoSimpleFlightLogger\icons\stall_off.png</href>
+                </Icon>
+            </IconStyle>
+        </Style>
+        <Style id="14">
+            <IconStyle id="15">
+                <colorMode>normal</colorMode>
+                <scale>1.2</scale>
+                <heading>0</heading>
+                <Icon id="16">
+                    <href>c:/Users/benja/Documents/GitHub/GeoSimpleFlightLogger\icons\fire_off.png</href>
+                </Icon>
+            </IconStyle>
+        </Style>
+        <Style id="19">
+            <IconStyle id="20">
+                <colorMode>normal</colorMode>
+                <scale>1.2</scale>
+                <heading>0</heading>
+                <Icon id="21">
+                    <href>c:/Users/benja/Documents/GitHub/GeoSimpleFlightLogger\icons\fire_off.png</href>
+                </Icon>
+            </IconStyle>
+        </Style>
+        <Style id="24">
+            <IconStyle id="25">
+                <colorMode>normal</colorMode>
+                <scale>1.2</scale>
+                <heading>0</heading>
+                <Icon id="26">
+                    <href>c:/Users/benja/Documents/GitHub/GeoSimpleFlightLogger\icons\fire_on.png</href>
+                </Icon>
+            </IconStyle>
+        </Style>
+        <Style id="29">
+            <IconStyle id="30">
+                <colorMode>normal</colorMode>
+                <scale>1.2</scale>
+                <heading>0</heading>
+                <Icon id="31">
+                    <href>c:/Users/benja/Documents/GitHub/GeoSimpleFlightLogger\icons\gear_down.png</href>
+                </Icon>
+            </IconStyle>
+        </Style>
+        <Style id="34">
+            <IconStyle id="35">
+                <colorMode>normal</colorMode>
+                <scale>1.2</scale>
+                <heading>0</heading>
+                <Icon id="36">
+                    <href>c:/Users/benja/Documents/GitHub/GeoSimpleFlightLogger\icons\gear_up.png</href>
+                </Icon>
+            </IconStyle>
+        </Style>
+        <Style id="39">
+            <LineStyle id="40">
+                <color>ff0000ff</color>
+                <colorMode>normal</colorMode>
+                <width>3</width>
+            </LineStyle>
+        </Style>
+        <Placemark id="3">
+            <name>Gear Up</name>
+            <description>Gear Up at -27.410168, 153.069165, 172.04 m</description>
+            <styleUrl>#4</styleUrl>
+            <Point id="2">
+                <coordinates>153.06916497361016,-27.410168255923494,172.03976613211304</coordinates>
+                <altitudeMode>absolute</altitudeMode>
+            </Point>
+        </Placemark>
+        <Placemark id="8">
+            <name>Stall Warning OFF</name>
+            <description>Stall Warning OFF at -27.410168, 153.069165, 172.04 m</description>
+            <styleUrl>#9</styleUrl>
+            <Point id="7">
+                <coordinates>153.06916497361016,-27.410168255923494,172.03976613211304</coordinates>
+                <altitudeMode>absolute</altitudeMode>
+            </Point>
+        </Placemark>
+        <Placemark id="13">
+            <name>Engine 1 Fire OFF</name>
+            <description>Engine 1 Fire OFF at -27.410168, 153.069165, 172.04 m</description>
+            <styleUrl>#14</styleUrl>
+            <Point id="12">
+                <coordinates>153.06916497361016,-27.410168255923494,172.03976613211304</coordinates>
+                <altitudeMode>absolute</altitudeMode>
+            </Point>
+        </Placemark>
+        <Placemark id="18">
+            <name>Engine 2 Fire OFF</name>
+            <description>Engine 2 Fire OFF at -27.410168, 153.069165, 172.04 m</description>
+            <styleUrl>#19</styleUrl>
+            <Point id="17">
+                <coordinates>153.06916497361016,-27.410168255923494,172.03976613211304</coordinates>
+                <altitudeMode>absolute</altitudeMode>
+            </Point>
+        </Placemark>
+        <Placemark id="23">
+            <name>Engine 1 Fire ON</name>
+            <description>Engine 1 Fire ON at -27.360144, 153.032405, 217.55 m</description>
+            <styleUrl>#24</styleUrl>
+            <Point id="22">
+                <coordinates>153.03240532031487,-27.360144429783833,217.55052090354909</coordinates>
+                <altitudeMode>absolute</altitudeMode>
+            </Point>
+        </Placemark>
+        <Placemark id="28">
+            <name>Gear Down</name>
+            <description>Gear Down at -27.361981, 153.033484, 273.79 m</description>
+            <styleUrl>#29</styleUrl>
+            <Point id="27">
+                <coordinates>153.03348353512197,-27.36198071349718,273.78610062041616</coordinates>
+                <altitudeMode>absolute</altitudeMode>
+            </Point>
+        </Placemark>
+        <Placemark id="33">
+            <name>Gear Up</name>
+            <description>Gear Up at -27.364987, 153.036328, 226.25 m</description>
+            <styleUrl>#34</styleUrl>
+            <Point id="32">
+                <coordinates>153.03632774725534,-27.364987246559995,226.24867359720514</coordinates>
+                <altitudeMode>absolute</altitudeMode>
+            </Point>
+        </Placemark>
+        <Placemark id="38">
+            <name>Flight Path</name>
+            <description>Flight Path Log</description>
+            <styleUrl>#39</styleUrl>
+            <LineString id="37">
+                <extrude>1</extrude>
+                <altitudeMode>absolute</altitudeMode>
+                <coordinates>153.06916497361016,-27.410168255923494,172.03976613211304 153.06913054651227,-27.410891127556162,159.33906449853586 153.06919598078332,-27.411570969243105,147.1481214709249 153.0693613522238,-27.41226030055511,134.82112048658405 153.03019032684705,-27.354999208512144,125.0307052103592 153.03007701281373,-27.35530213443007,120.85614096714053 153.03038544202218,-27.355975662632993,121.58099340899167 153.03069042698934,-27.356637551836855,126.88433471630168 153.03099146306283,-27.357284397318303,136.29413870453368 153.03128728788337,-27.357911035093462,149.1546511201156 153.0315711664015,-27.3585010976331,164.31149113297798 153.03186287774318,-27.359093085759486,182.03662797463357 153.03213221631506,-27.359623998949008,199.54676928259894 153.03240532031487,-27.360144429783833,217.55052090354909 153.03267417446864,-27.360636836327615,234.62073971850225 153.03294737745358,-27.36111473300586,250.44682390726783 153.03321182710366,-27.361554210295697,263.4654344043693 153.03348353512197,-27.36198071349718,273.78610062041616 153.0337624826932,-27.36239118940662,280.7933820062983 153.03404969368847,-27.362784570912954,284.19023222264195 153.03435349666782,-27.36316892501074,283.8993161729687 153.0346789197755,-27.363545847418944,279.82169686826944 153.03503920240382,-27.3639237477152,271.74572974601665 153.0354284650941,-27.36428935561446,259.97975245900074 153.0358572115166,-27.364645812932515,244.63894700312255 153.03632774725534,-27.364987246559995,226.24867359720514 153.0368402234087,-27.36530626356924,205.60574916454902 153.0374107033612,-27.36560302551379,183.03297837413677 153.03804052695855,-27.36586737844945,159.5880931917106 153.03872503262278,-27.36608769167119,136.30983075186367 153.03945874060508,-27.366253922103166,114.09466934617518 153.0402478204765,-27.366358161784227,93.40168848188446 153.04110013590437,-27.366387903726068,74.6739670758771 153.04194849517384,-27.366332827204413,59.637915201879764 153.04277959728927,-27.366193725986502,48.25849792578069</coordinates>
+            </LineString>
+        </Placemark>
+    </Document>
+</kml>

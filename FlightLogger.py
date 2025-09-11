@@ -5,6 +5,7 @@ import tkinter as tk
 from tkinter import filedialog
 import threading
 import time
+import os
 from xpc import XPlaneConnect
 import simplekml
 
@@ -34,15 +35,18 @@ class KMLLogger:
             0.75: "Flaps 3/4",
         }
 
-        # Icon set (can be replaced with your own URLs)
+        # Path to local GPXSee icons folder
+        self.icon_path = os.path.join(os.path.dirname(__file__), "icons")
+
+        # GPXSee-style icons (replace filenames with the ones you actually have)
         self.icons = {
-            "gear_up": "http://maps.google.com/mapfiles/kml/shapes/arrow.png",
-            "gear_down": "http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png",
-            "flaps": "http://maps.google.com/mapfiles/kml/shapes/triangle.png",
-            "stall_on": "http://maps.google.com/mapfiles/kml/shapes/caution.png",
-            "stall_off": "http://maps.google.com/mapfiles/kml/shapes/info.png",
-            "fire_on": "http://maps.google.com/mapfiles/kml/shapes/firedept.png",
-            "fire_off": "http://maps.google.com/mapfiles/kml/shapes/open-diamond.png",
+            "gear_up":   os.path.join(self.icon_path, "gear_up.png"),
+            "gear_down": os.path.join(self.icon_path, "gear_down.png"),
+            "flaps":     os.path.join(self.icon_path, "flaps.png"),
+            "stall_on":  os.path.join(self.icon_path, "stall_on.png"),
+            "stall_off": os.path.join(self.icon_path, "stall_off.png"),
+            "fire_on":   os.path.join(self.icon_path, "fire_on.png"),
+            "fire_off":  os.path.join(self.icon_path, "fire_off.png"),
         }
 
     def set_status(self, msg):
@@ -92,18 +96,18 @@ class KMLLogger:
         else:
             self.set_status("Not currently logging.")
 
-    def add_waypoint(self, label, lat, lon, alt, icon_url):
+    def add_waypoint(self, label, lat, lon, alt, icon_file):
         wp = self.kml.newpoint(name=label, coords=[(lon, lat, alt)])
         wp.altitudemode = simplekml.AltitudeMode.absolute
         wp.description = f"{label} at {lat:.6f}, {lon:.6f}, {alt:.2f} m"
-        wp.style.iconstyle.icon.href = icon_url
+        wp.style.iconstyle.icon.href = icon_file  # local path or URL
         wp.style.iconstyle.scale = 1.2
         print(f"Added waypoint: {label} at {lat:.6f}, {lon:.6f}, {alt:.2f}m")
 
     def log_loop(self):
         while self.running:
             try:
-                # Position
+                # --- Position ---
                 pos = self.client.getPOSI()
                 lat, lon, alt = pos[0], pos[1], pos[2]
                 self.coords.append((lon, lat, alt))
